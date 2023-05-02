@@ -1,112 +1,60 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useContext, useVisibleTask$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
+import { routeLoader$ } from '@builder.io/qwik-city';
+import About from '~/components/about/about';
+import Carousel from '~/components/carousel/carousel';
+import RecentPublication from '~/components/recent-publication/recent-publication';
+import ResearchArea from '~/components/research-area/research-area';
+import type { Area} from '../../public/data/research-area';
+import { RESEARCHAREAS } from '../../public/data/research-area';
+import type { Article, Pub} from '../../public/data/publication';
+import { PUBLICATIONS } from '../../public/data/publication';
+import type { AboutInterface } from '../../public/data/about';
+import { ABOUTDATA } from '../../public/data/about';
+import { ThemeContext } from '~/root';
 
-import Counter from '~/components/starter/counter/counter';
-import Hero from '~/components/starter/hero/hero';
-import Infobox from '~/components/starter/infobox/infobox';
-import Starter from '~/components/starter/next-steps/next-steps';
+export const useAboutData = routeLoader$(async (): Promise<AboutInterface> => {
+  return ABOUTDATA;
+});
+
+export const useResearchAreaData = routeLoader$(async (): Promise<Area[]> => {
+  return RESEARCHAREAS;
+});
+
+export const useRecentPublication = routeLoader$(async (): Promise<Article[]> => {
+  const data = PUBLICATIONS;
+  const articles = data.reduce((acc: Article[], pub: Pub) => [...acc, ...pub.articles], []).slice(0, 5);
+  return articles;
+});
 
 export default component$(() => {
+  const theme = useContext(ThemeContext);
+
+  useVisibleTask$(({track})=>{
+    track(() => theme.value.dark);
+  
+  })
+  
   return (
-    <>
-      <Hero />
-      <Starter />
-
-      <div role="presentation" class="ellipsis"></div>
-      <div role="presentation" class="ellipsis ellipsis-purple"></div>
-
-      <div class="container container-center container-spacing-xl">
-        <h3>
-          You can <span class="highlight">count</span>
-          <br /> on me
-        </h3>
-        <Counter />
+    <div class="flex flex-col gap-y-2 max-w-[100vw]">
+      <Carousel dirPath={'public/images/album'} collage={false} />
+      <RecentPublication />
+      <About />
+      <ResearchArea />
+      <div id="twitter">
+      {theme.value.dark ? <a class="twitter-timeline"  data-height="620" data-theme="dark" href="https://twitter.com/pdslab_iisc?ref_src=twsrc%5Etfw">Tweets by pdslab_iisc</a>:<a class="twitter-timeline"  data-height="620" href="https://twitter.com/pdslab_iisc?ref_src=twsrc%5Etfw">Tweets by pdslab_iisc</a>}
+      <script async src="https://platform.twitter.com/widgets.js"></script>
       </div>
-
-      <div class="container container-flex">
-        <Infobox>
-          <div q:slot="title" class="icon icon-cli">
-            CLI Commands
-          </div>
-          <>
-            <p>
-              <code>npm run dev</code>
-              <br />
-              Starts the development server and watches for changes
-            </p>
-            <p>
-              <code>npm run preview</code>
-              <br />
-              Creates production build and starts a server to preview it
-            </p>
-            <p>
-              <code>npm run build</code>
-              <br />
-              Creates production build
-            </p>
-            <p>
-              <code>npm run qwik add</code>
-              <br />
-              Runs the qwik CLI to add integrations
-            </p>
-          </>
-        </Infobox>
-
-        <div>
-          <Infobox>
-            <div q:slot="title" class="icon icon-apps">
-              Example Apps
-            </div>
-            <p>
-              Have a look at the <a href="/demo/flower">Flower App</a> or the{' '}
-              <a href="/demo/todolist">Todo App</a>.
-            </p>
-          </Infobox>
-
-          <Infobox>
-            <div q:slot="title" class="icon icon-community">
-              Community
-            </div>
-            <ul>
-              <li>
-                <span>Questions or just want to say hi? </span>
-                <a href="https://qwik.builder.io/chat" target="_blank">
-                  Chat on discord!
-                </a>
-              </li>
-              <li>
-                <span>Follow </span>
-                <a href="https://twitter.com/QwikDev" target="_blank">
-                  @QwikDev
-                </a>
-                <span> on Twitter</span>
-              </li>
-              <li>
-                <span>Open issues and contribute on </span>
-                <a href="https://github.com/BuilderIO/qwik" target="_blank">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <span>Watch </span>
-                <a href="https://qwik.builder.io/media/" target="_blank">
-                  Presentations, Podcasts, Videos, etc.
-                </a>
-              </li>
-            </ul>
-          </Infobox>
-        </div>
-      </div>
-    </>
+    </div>
   );
 });
 
 export const head: DocumentHead = {
-  title: 'Welcome to Qwik',
+  title: 'Mitochondrial Biology Lab',
   meta: [
     {
       name: 'description',
-      content: 'Qwik site description',
+      content: 'Mitochondrial Biology Lab, Dept of Biochemistry, Indian Institute of Science, Bangalore.',
     },
   ],
 };

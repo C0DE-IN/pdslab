@@ -1,56 +1,105 @@
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --qwik-dark-blue: #006ce9;
-  --qwik-light-blue: #18b6f6;
-  --qwik-light-purple: #ac7ff4;
-  --qwik-dark-purple: #713fc2;
-  --qwik-dirty-black: #1d2033;
-  --qwik-dark-background: #151934;
-  --qwik-dark-text: #ffffff;
+@layer utilities {
+    .light-mode {
+        @apply bg-slate-200;
+    }
+
+    .lighter-light {
+        @apply bg-slate-100;
+    }
+
+    .darker-light {
+        @apply bg-slate-300;
+    }
+
+    .dark-mode {
+        @apply bg-slate-700;
+    }
+
+    .darker-dark {
+        @apply bg-slate-800;
+    }
+
+    .lighter-dark {
+        @apply bg-slate-600;
+    }
+
+    .card {
+        @apply w-full p-3;
+    }
+
+    .see-through {
+        @apply bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80;
+    }
+
+    .spacing {
+        @apply p-3;
+    }
+    .border-pink {
+        @apply ring-1 ring-rose-300 hover:ring-rose-400 ring-offset-2 ring-offset-transparent rounded-full drop-shadow-xl;
+    }
+    .border-light {
+        @apply border border-gray-300 drop-shadow-xl rounded-lg;
+    }
+
+    .border-dark {
+        @apply border border-gray-500 drop-shadow-xl rounded-lg;
+    }
+
 }
 
-html {
-  line-height: 1;
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+@layer components {
+    .overlay-gradient-top {
+        @apply bg-gradient-to-t from-slate-200 to-transparent text-slate-800 bg-opacity-10;
+    }
+
+    .overlay-gradient-bottom {
+        @apply bg-gradient-to-b from-slate-200 to-transparent text-slate-800 bg-opacity-25;
+    }
+
+    .overlay-gradient-dark-top {
+        @apply bg-gradient-to-t from-slate-700 to-transparent text-slate-200 bg-opacity-10;
+    }
+
+    .overlay-gradient-dark-bottom {
+        @apply bg-gradient-to-b from-slate-700 to-transparent text-slate-200 bg-opacity-25;
+    }
+
 }
 
-body {
-  padding: 0;
-  margin: 0;
-  line-height: inherit;
-}
+@layer base {
+    .heading-font {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 text-center spacing;
+    }
 
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
-html {
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
-}
+    .light-mode {
+        @apply text-slate-700 whitespace-normal;
+    }
 
-body {
-  padding: 0;
-  line-height: inherit;
+    .lighter-light {
+        @apply text-slate-800 whitespace-normal;
+    }
+
+    .darker-light {
+        @apply text-slate-600 whitespace-normal;
+    }
+
+    .dark-mode {
+        @apply text-slate-300 whitespace-normal;
+    }
+
+    .darker-dark {
+        @apply text-slate-200 whitespace-normal;
+    }
+
+    .lighter-dark {
+        @apply text-slate-200 whitespace-normal;
+    }
+
+    svg {
+        fill: currentColor;
+    }
 }
