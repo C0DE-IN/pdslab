@@ -12,6 +12,7 @@ import { PUBLICATIONS } from '../../public/data/publication';
 import type { AboutInterface } from '../../public/data/about';
 import { ABOUTDATA } from '../../public/data/about';
 import { ThemeContext } from '~/root';
+import { ModelsCollage } from '~/components/models-collage/models-collage';
 
 export const useAboutData = routeLoader$(async (): Promise<AboutInterface> => {
   return ABOUTDATA;
@@ -41,6 +42,7 @@ export default component$(() => {
       <RecentPublication />
       <About />
       <ResearchArea />
+      <ModelsCollage dirPath={'public/images/models'}/>
       <div id="twitter">
       {theme.value.dark ? <a class="twitter-timeline"  data-height="620" data-theme="dark" href="https://twitter.com/pdslab_iisc?ref_src=twsrc%5Etfw">Tweets by pdslab_iisc</a>:<a class="twitter-timeline"  data-height="620" href="https://twitter.com/pdslab_iisc?ref_src=twsrc%5Etfw">Tweets by pdslab_iisc</a>}
       <script async src="https://platform.twitter.com/widgets.js"></script>
