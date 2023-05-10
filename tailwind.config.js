@@ -3,6 +3,7 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
+     
       keyframes: {
         slide: {
           '0%': { transform: 'translateX(75%)' },

@@ -58,7 +58,7 @@ export default component$(() => {
       <div class="spacing light-mode dark:darker-dark  border-light dark:border-dark">
         {news[state.currentNewsIndex].logo ?
           <span class="flex flex-row justify-around h-12">
-            <svg class="cursor-pointer text-blue-900 dark:text-blue-400" onClick$={() => { window.open(news[state.currentNewsIndex].link); }}>
+            <svg class="cursor-pointer text-[#161615] dark:text-slate-300" onClick$={() => { window.open(news[state.currentNewsIndex].link); }}>
               <use xlink:href={news[state.currentNewsIndex].logo + '#the_hindu_logo'} href={news[state.currentNewsIndex].logo + '#the_hindu_logo'}></use>
             </svg>
           </span>
