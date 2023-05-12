@@ -12,6 +12,8 @@ import { ThemeContext } from '~/root';
 import { ModelsCollage } from '~/components/models-collage/models-collage';
 import { MEDIA_NEWS, type Hindu } from '../../public/data/news';
 import RecentNews from '~/components/recent-news/recent-news';
+// import { MESSAGES, type mess } from '../../public/data/notification';
+import { Notice } from '~/components/notice/notice';
 
 export const useAboutData = routeLoader$(async (): Promise<AboutInterface> => {
   return ABOUTDATA;
@@ -23,6 +25,7 @@ export const useResearchAreaData = routeLoader$(async (): Promise<Area[]> => {
 export const useRecentNews = routeLoader$(async (): Promise<Hindu[]> => {
   return MEDIA_NEWS;
 });
+
 
 export const useRecentPublication = routeLoader$(async (): Promise<Article[]> => {
   const data = PUBLICATIONS;
@@ -41,6 +44,7 @@ export default component$(() => {
   return (
     <div class="flex flex-col gap-y-2 max-w-[100vw]">
       <Carousel dirPath={'public/images/album'} collage={false} />
+      <Notice />
       <RecentNews />
       <About />
       <RecentPublication />

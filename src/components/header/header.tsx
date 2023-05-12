@@ -31,7 +31,7 @@ export default component$(() => {
   return (
     <header id="flex flex-col darker-light dark:darker-dark z-10 rounded-xl  max-w-[100vw]">
       <div class="rounded-xl mb-2 p-2 darker-light dark:darker-dark" >
-        <div class="flex flex-row max-sm:flex-col  rounded-xl items-center justify-center">
+        <div class="flex flex-row  rounded-xl items-center justify-center">
           <span class="max-sm:hidden">
             <img src="/logos/iisc_protein.png" class="h-24 w-24" alt="MBL logo" />
           </span>
