@@ -104,19 +104,9 @@
     }
 }
 
-:root {
-    --clr-1:#212534;
-    --clr-2:#191c29;
-    --clr-3:#5ddcff;
-    --clr-4:#3c67e3;
-    --clr-5:#4e00c2;
-  }
   @property --gradient-angle {
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
   }
-  @keyframes rotation {
-    0% {--gradient-angle: 0deg;}
-    100% {--gradient-angle: 360deg;}
-  }
+
