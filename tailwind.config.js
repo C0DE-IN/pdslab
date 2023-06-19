@@ -41,19 +41,7 @@ module.exports = {
       }
     },
   },
-  plugins: [
-    // plugin(function ({ addComponents }) {
-    //   const components = {
-    //     '@property --gradient-angle': {
-    //       syntax: '<angle>',
-    //       'initial-value': '0deg',
-    //       inherits: false,
-    //     },
-    //   };
-
-    //   addComponents(components);
-    // }),
-  ],
+  plugins: [ ],
   darkMode: 'class'
 };
 

@@ -28,7 +28,7 @@ export const PUBLICATIONS: Pub[] = [
                 issue: "2023 Jan",
                 pubmed: "https://pubmed.ncbi.nlm.nih.gov/36601773/",
                 link: "https://doi.org/10.1242/jcs.260060",
-                "highlight": "https://journals.biologists.com/jcs/article/136/2/e136_e0201/286813/Complex-crosstalk-in-mitochondrial-proteostasis"
+                highlight: "https://journals.biologists.com/jcs/article/136/2/e136_e0201/286813/Complex-crosstalk-in-mitochondrial-proteostasis"
             }
         ]
     },
@@ -52,7 +52,8 @@ export const PUBLICATIONS: Pub[] = [
                 journal: "New Phytologist",
                 issue: "2022 Jul",
                 pubmed: "https://pubmed.ncbi.nlm.nih.gov/35976797/",
-                link: "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.18414"
+                link: "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.18414",
+                highlight: "https://www.cell.com/trends/plant-science/fulltext/S1360-1385(23)00193-0"
             },
             {
                 authors: [
